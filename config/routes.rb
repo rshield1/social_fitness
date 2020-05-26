@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   root 'static#index'
   
-  get '/login' => 'users#show'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
   get '/signup' => 'users#new'
  
 
