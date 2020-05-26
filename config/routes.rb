@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  root 'static#index'
   resources :comments
   resources :posts
   resources :workouts
