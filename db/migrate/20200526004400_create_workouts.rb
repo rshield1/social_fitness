@@ -7,7 +7,7 @@ class CreateWorkouts < ActiveRecord::Migration[6.0]
       t.integer :reps
       t.integer :difficulty
       # add foreign key
-
+      t.references :user
       t.timestamps
     end
   end
