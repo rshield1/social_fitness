@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
   root 'static#index'
+  
+  get '/login' => 'users#show'
+  get '/signup' => 'users#new'
+ 
+
+  
   resources :comments
   resources :posts
   resources :workouts

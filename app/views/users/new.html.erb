@@ -1,0 +1,24 @@
+<%
+=begin%>
+ <%= form_for(@user) do |f| %>
+<%= f.text_field :username %>
+<%= f.email_field :email%>
+<%= f.password_field :password %>
+  <%= f.submit "Submit" %>
+<% end %> 
+<%
+=end%>
+
+
+<%= simple_form_for @user, do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :name %>
+
+  <%= f.input :email, input_html: { autocomplete: 'email' } %>
+
+  <%= f.input :password, input_html: { autocomplete: 'current-password' } %>
+
+  <%= f.button :submit, class: "btn-primary" %>
+  <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+<% end %>
