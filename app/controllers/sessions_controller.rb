@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
 def new
 end
-C:\Users\rober\social_fitness\app\controllers\sessions_controller.rb
+
 def create
     @user = User.find_by(username: params[:user][:username])
     if @user && @user.authenticate(params[:user][:password])
