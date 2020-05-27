@@ -22,7 +22,7 @@
     <%= f.collection_select :name %>
 </div>
 <div>
-    <%= f.fields_for :post do |post| %>
+    <%= f.fields_for @post do |post| %>
         <%= post.label :title %>
         <%= post.text_field :title %>
         <%= post.label :content %>
