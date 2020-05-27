@@ -1,13 +1,13 @@
 class WorkoutsController < ApplicationController
     def new
         @workout = Workout.new
-        @post = @workout.post.build
+        @workout.build_category
     end
 
     def create 
         @workout = Workout.new(workout_params)
-        @workout.user_id = session[:user.id]
-    if @workout.save
+        @workout.user_id = session[:user_id]
+    if @workout.save!
         redirect_to workout_path(@workout)
     else
         render :new
@@ -20,7 +20,7 @@ class WorkoutsController < ApplicationController
 
 
     def workout_params
-        params.require(:workout).permit(:name, :type, :sets, :reps, :difficulty, :post_id, post_attributes: [:title, :content])
+        params.require(:workout).permit(:name, :sets, :reps, :difficulty, :category_id, category_attributes: [:name])
     end
 
 

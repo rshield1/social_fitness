@@ -1,37 +1,38 @@
 <p>Add a new workout</p>
 
 <%= form_for(@workout) do |f| %>
-<div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-</div>
-<div>
-    <%= f.label :type %>
-    <%= f.text_field :name %>
-</div>
-<div>
-    <%= f.label :sets %>
-    <%= f.text_field :name %>
-</div>
-<div>
-    <%= f.label :reps %>
-    <%= f.text_field :name %>
-</div>
-<div>
-    <%= f.label :difficulty %>
-    <%= f.collection_select :name %>
-</div>
-<div>
-    <%= f.fields_for @post do |post| %>
-        <%= post.label :title %>
-        <%= post.text_field :title %>
-        <%= post.label :content %>
-        <%= post.label :content %>
-    <% end %>
-</div>
-    <%= f. submit %>
-    <% end %>
 
+    <div>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+
+    <div>
+        <%= f.collection_select :category_id, Category.all, :id, :name %>
+    </div>
+
+    <div>
+        <%= f.fields_for :category do |c| %>
+        <%= c.label :name %>
+        <% end %>
+    </div>
+
+    <div>
+        <%= f.label :sets %>
+        <%= f.text_field :name %>
+    </div>
+
+    <div>
+        <%= f.label :reps %>
+        <%= f.text_field :name %>
+    </div>
+
+    <div>
+        <%= f.label :difficulty %>
+        <%= f.collection_select :name %>
+    </div>
+
+        <%= f. submit %>
 <% end %>
 
 

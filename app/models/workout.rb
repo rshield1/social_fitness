@@ -1,6 +1,8 @@
 class Workout < ApplicationRecord
     has_many :user_workouts
     has_many :users, through: :user_workouts
-    has_many :categories
+    belongs_to :category
+
+    accepts_nested_attributes_for :category
    
 end
