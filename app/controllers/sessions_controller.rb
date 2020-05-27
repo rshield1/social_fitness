@@ -2,14 +2,14 @@ class SessionsController < ApplicationController
 
 def new
 end
-
+C:\Users\rober\social_fitness\app\controllers\sessions_controller.rb
 def create
-    @user = User.find_by(id: params[:id])
-    if @user
+    @user = User.find_by(username: params[:user][:username])
+    if @user && @user.authenticate(params[:user][:password])
         session[:user_id] = @user.id
         redirect_to user_path(@user)
     else
-        redirect_to "/login"
+        redirect_to login_path
     end
 end
 
