@@ -10,7 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_004400) do
+ActiveRecord::Schema.define(version: 2020_05_27_175224) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "content"
+    t.boolean "like"
+    t.integer "user_id", null: false
+    t.integer "user_workout_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_comments_on_user_id"
+    t.index ["user_workout_id"], name: "index_comments_on_user_workout_id"
+  end
+
+  create_table "user_workouts", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.integer "user_id"
+    t.integer "workout_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_user_workouts_on_user_id"
+    t.index ["workout_id"], name: "index_user_workouts_on_workout_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
@@ -32,4 +60,6 @@ ActiveRecord::Schema.define(version: 2020_05_26_004400) do
     t.index ["user_id"], name: "index_workouts_on_user_id"
   end
 
+  add_foreign_key "comments", "user_workouts"
+  add_foreign_key "comments", "users"
 end

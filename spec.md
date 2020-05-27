@@ -22,3 +22,47 @@ Confirm:
  Limited logic in controllers
  Views use helper methods if appropriate
  Views use partials if appropriate
+
+
+
+
+ #notes
+
+ join table direct relationship example
+ <%= form_for @appointment do |f| %>
+  <%= f.datetime_select :appointment_datetime %>
+  <%= f.collection_select :doctor, Doctor.all, :id, :name %>
+  <%= f.collection_select :patient, Patient.all, :id, :name %>
+  <%= f.submit %>
+<% end %>
+
+
+<%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+
+  def post_params
+    params.require(:post).permit(:title, :content, category_ids:[])
+  end
+
+  def new
+    @notice = Notice.new
+    @notice.entity_roles.build(name: 'submitter').build_entity
+    @notice.entity_roles.build(name: 'recipient').build_entity
+  end
+
+
+
+
+<%= simple_form_for(@user) do |form| %>
+  <%= form.input :title %>
+
+  <%= form.simple_fields_for(:entity_roles) do |roles_form| %>
+    <% role = roles_form.object.name.titleize %>
+    <%= roles_form.input :name, as: :hidden %>
+    <%= roles_form.simple_fields_for(:entity) do |entity_form| %>
+      <%= entity_form.input :name, label: "#{role} Name" %>
+      <%= entity_form.input :address, label: "#{role} Address" %>
+    <% end %>
+  <% end %>
+
+  <%= form.submit "Submit" %>
+<% end %>
