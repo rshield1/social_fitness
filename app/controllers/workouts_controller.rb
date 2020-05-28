@@ -5,6 +5,8 @@ class WorkoutsController < ApplicationController
     end
 
     def create 
+        binding.pry
+        
         @workout = Workout.new(workout_params)
         @workout.user_id = session[:user_id]
     if @workout.save!

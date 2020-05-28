@@ -5,8 +5,8 @@ class CreateWorkouts < ActiveRecord::Migration[6.0]
       t.integer :sets
       t.integer :reps
       t.integer :difficulty
-      t.references :category_id
-      t.references :user_id 
+      t.references :category
+      t.references :user
       t.timestamps 
     end
   end

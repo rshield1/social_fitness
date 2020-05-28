@@ -1,0 +1,34 @@
+<%= form_for(@workout) do |f| %>
+    <div>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+    
+    
+    <p>Select an Existing Category</p>
+    <div>
+        <%= f.label :category %>
+        <%= f.collection_select :category_id, Category.all, :id, :name %>
+    </div>
+
+    <p>Add a New Category</p>
+    <div>
+        <%= f.fields_for :category do |c| %>
+        <%= c.label :category %>
+        <%= c. text_field :name %>
+        <% end %>
+    </div>
+    <div>
+        <%= f.label :sets %>
+        <%= f.text_field :sets %>
+    </div>
+    <div>
+        <%= f.label :reps %>
+        <%= f.text_field :reps %>
+    </div>
+    <div>
+        <%= f.label :difficulty %>
+        <%= f.text_area :difficulty %>
+    </div>
+        <%= f. submit %>
+<% end %>
