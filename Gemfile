@@ -26,6 +26,7 @@ gem 'simple_form'
 gem 'omniauth'
 gem "omniauth-github"
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
+gem 'pry'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
