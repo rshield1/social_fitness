@@ -38,6 +38,18 @@
                 <span class="sr-only">(current)</span>
               </a>
         </li>
+
+        <%
+=begin%>
+ I want to only show rest of nav bar if user is signed in 
+<%
+=end%>
+
+<%
+=begin%>
+ <% if signed_in?(session) %> 
+<%
+=end%>
         <li class="nav-item">
           <a class="nav-link" <%= link_to  "New Workout", new_workout_path %> </a>
         </li>
