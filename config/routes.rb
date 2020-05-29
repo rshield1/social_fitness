@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :categories
-  resources :user_workouts
+  resources :posts
   get '/' => 'static#index'
   
   get '/login' => 'sessions#new'
@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   resources :comments
   resources :users
   resources :workouts do 
-    resources :user_workouts, only: [:new, :index]
+    resources :posts, only: [:new, :index]
   end
 end

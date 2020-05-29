@@ -29,15 +29,15 @@ ActiveRecord::Schema.define(version: 2020_05_27_175224) do
     t.index ["user_workout_id"], name: "index_comments_on_user_workout_id"
   end
 
-  create_table "user_workouts", force: :cascade do |t|
+  create_table "posts", force: :cascade do |t|
     t.string "title"
     t.string "content"
     t.integer "user_id"
     t.integer "workout_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_user_workouts_on_user_id"
-    t.index ["workout_id"], name: "index_user_workouts_on_workout_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+    t.index ["workout_id"], name: "index_posts_on_workout_id"
   end
 
   create_table "users", force: :cascade do |t|
