@@ -3,32 +3,36 @@
         <%= f.label :name %>
         <%= f.text_field :name %>
     </div>
-    
-    
-    <p>Select an Existing Category</p>
+
     <div>
-        <%= f.label :category %>
-        <%= f.collection_select :category_id, Category.all, :id, :name %>
+        <%= f.label :description %>
+        <%= f.text_field :description %>
     </div>
 
-    <p>Add a New Category</p>
     <div>
-        <%= f.fields_for :category do |c| %>
-        <%= c.label :category %>
-        <%= c. text_field :name %>
-        <% end %>
+        <%= f.label :time %>
+        <%= f.number_field :time %>
     </div>
-    <div>
-        <%= f.label :sets %>
-        <%= f.text_field :sets %>
-    </div>
-    <div>
-        <%= f.label :reps %>
-        <%= f.text_field :reps %>
-    </div>
+
     <div>
         <%= f.label :difficulty %>
-        <%= f.text_area :difficulty %>
+        <%= f.number_field :difficulty %>
+    </div>
+    
+    
+    <p>Select an Existing Move</p>
+    <div>
+        <%= f.label :moves %>
+        <%= f.collection_select :move_id, Move.all, :id, :name %>
+    </div>
+
+    <p>Add a New Move</p>
+    <div>
+        <%= f.fields_for :moves do |m| %>
+        <%= m.label :move %>
+        <%= m.text_field :name %>
+        <br>
+        <% end %>
     </div>
         <%= f. submit %>
 <% end %>

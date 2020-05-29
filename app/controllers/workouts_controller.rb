@@ -8,10 +8,13 @@ class WorkoutsController < ApplicationController
     
     def new
         @workout = Workout.new
-        @workout.build_category
+        @workout.moves.build
+        @workout.moves.build
+        @workout.moves.build
     end
 
     def create 
+        binding.pry
         @workout = Workout.new(workout_params)
         @workout.user_id = session[:user_id]
     if @workout.save!
@@ -19,7 +22,6 @@ class WorkoutsController < ApplicationController
     else
         render :new
     end
-
     end
 
     def show

@@ -10,28 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_27_164413) do
+ActiveRecord::Schema.define(version: 2020_05_29_153935) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
     t.boolean "like"
     t.integer "user_id", null: false
-    t.integer "user_workout_id", null: false
+    t.integer "workout_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_comments_on_user_id"
-    t.index ["user_workout_id"], name: "index_comments_on_user_workout_id"
+    t.index ["workout_id"], name: "index_comments_on_workout_id"
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.string "content"
-    t.integer "user_id"
-    t.integer "workout_id"
+  create_table "moves", force: :cascade do |t|
+    t.string "name"
+    t.integer "rep_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_posts_on_user_id"
-    t.index ["workout_id"], name: "index_posts_on_workout_id"
+  end
+
+  create_table "reps", force: :cascade do |t|
+    t.integer "workout_id"
+    t.integer "move_id"
+    t.string "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -44,17 +54,16 @@ ActiveRecord::Schema.define(version: 2020_05_27_164413) do
 
   create_table "workouts", force: :cascade do |t|
     t.string "name"
-    t.integer "sets"
-    t.integer "reps"
+    t.string "description"
+    t.integer "time"
     t.integer "difficulty"
-    t.integer "category_id"
+    t.integer "move_id"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_workouts_on_category_id"
     t.index ["user_id"], name: "index_workouts_on_user_id"
   end
 
-  add_foreign_key "comments", "user_workouts"
   add_foreign_key "comments", "users"
+  add_foreign_key "comments", "workouts"
 end

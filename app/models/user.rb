@@ -1,7 +1,6 @@
 class User < ApplicationRecord
 
     has_many :workouts #created workouts
-    has_many :moves, through :workouts
     
     validates :username, uniqueness: true, presence: true, length: { minimum: 5}
     validates :email, uniqueness: true, presence: true
