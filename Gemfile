@@ -27,6 +27,7 @@ gem 'omniauth'
 gem "omniauth-github"
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 gem 'pry'
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
