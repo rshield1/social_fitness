@@ -32,7 +32,9 @@
         <%= m.label :move %>
         <%= m.text_field :name %><br>
         <%= m.label :reps %>
-        <%= m.number_field :rep.quantity %>
+        <%= f.fields_for :rep_id do |r| %>
+        <%= r.number_field :rep_id.quantity %>
+        <% end %>
         <br>
         <% end %>
     </div>

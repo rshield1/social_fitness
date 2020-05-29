@@ -5,7 +5,6 @@ class CreateWorkouts < ActiveRecord::Migration[6.0]
       t.string :description
       t.integer :time
       t.integer :difficulty
-      t.integer :move_id
       t.references :user
       t.timestamps 
     end

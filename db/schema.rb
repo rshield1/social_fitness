@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 2020_05_29_153935) do
 
   create_table "moves", force: :cascade do |t|
     t.string "name"
-    t.integer "rep_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -57,7 +56,6 @@ ActiveRecord::Schema.define(version: 2020_05_29_153935) do
     t.string "description"
     t.integer "time"
     t.integer "difficulty"
-    t.integer "move_id"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
