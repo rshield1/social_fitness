@@ -12,7 +12,8 @@ Rails.application.routes.draw do
 
   
   resources :comments
-  resources :posts
   resources :users
-  resources :workouts
+  resources :workouts do 
+    resources :user_workouts, only: [:new, :index]
+  end
 end
