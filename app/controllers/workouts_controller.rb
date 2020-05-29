@@ -11,6 +11,8 @@ class WorkoutsController < ApplicationController
         @workout.moves.build
         @workout.moves.build
         @workout.moves.build
+        @workout.moves.build
+        @workout.moves.build
     end
 
     def create 
@@ -33,7 +35,7 @@ class WorkoutsController < ApplicationController
 
 
     def workout_params
-        params.require(:workout).permit(:name, :sets, :reps, :difficulty, :category_id, category_attributes: [:name])
+        params.require(:workout).permit(:name, :description, :time, :difficulty, :move_id, move_attributes: [:name])
     end
 
 
