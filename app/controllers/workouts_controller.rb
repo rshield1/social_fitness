@@ -10,9 +10,6 @@ class WorkoutsController < ApplicationController
         @workout = Workout.new
         @workout.moves.build
         @workout.moves.build
-        @workout.moves.build
-        @workout.moves.build
-        @workout.moves.build
     end
 
     def create 

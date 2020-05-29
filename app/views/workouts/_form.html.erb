@@ -30,7 +30,9 @@
     <div>
         <%= f.fields_for :moves do |m| %>
         <%= m.label :move %>
-        <%= m.text_field :name %>
+        <%= m.text_field :name %><br>
+        <%= m.label :reps %>
+        <%= m.number_field :rep.quantity %>
         <br>
         <% end %>
     </div>
