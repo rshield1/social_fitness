@@ -8,4 +8,7 @@
 
 require 'faker'
 
-Faker::Name.name
+10.times do
+    User.create(username: Faker::JapaneseMedia::DragonBall.character, password: "123456")
+    
+end
