@@ -6,8 +6,7 @@ class ApplicationController < ActionController::Base
     #     redirect_to_login_path unless user_signed_in?
     # end
 
-    def signed_in?(session)
-        #is there a user id in our session check if true or false?
-        session[:user_id] ? true : false
-    end
+    def require_login
+        return head(:forbidden) unless session.include? :user_id
+      end
 end

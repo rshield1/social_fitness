@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-    belongs_to :workout
+    has_many :workouts
 end

@@ -1,0 +1,13 @@
+<h1>All of the workouts!</h1>
+
+<%= @workouts.each do |w| %>
+<%= w.user.username %>
+<br>
+<%= w.name %>
+<br>
+<%= w.sets %>
+<br>
+<%= w.reps %>
+<hr>
+
+<% end %>
