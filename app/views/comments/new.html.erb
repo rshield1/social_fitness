@@ -1,0 +1,21 @@
+<h1>Add a comment</h1>
+
+<%= form_for(@comment) do |c|%>
+    <%= c.hidden_field :workout_id %>
+  <br>
+  <div>
+    <%= c.label :title %>
+    <%= c.text_field :title %>
+  </div>
+  <br>
+  <div>
+    <%= c.label :content %>
+    <%= c.text_area :content, size: "25x10" %>
+  </div>
+  <br>
+
+
+
+  <%= c.submit %>
+
+<% end %>
