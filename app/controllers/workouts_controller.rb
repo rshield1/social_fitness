@@ -12,7 +12,6 @@ class WorkoutsController < ApplicationController
     end
 
     def create 
-        
         @workout = Workout.new(workout_params)
         @workout.user_id = session[:user_id]
         binding.pry
@@ -32,7 +31,7 @@ class WorkoutsController < ApplicationController
 
 
     def workout_params
-        params.require(:workout).permit(:title, :description, :time, :difficulty, moves_attributes: [:id, :name])
+        params.require(:workout).permit(:title, :description, :time, :difficulty, category_attributes: [:name])
     end
 
 

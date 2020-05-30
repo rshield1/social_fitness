@@ -21,14 +21,12 @@
 
     <div>
     <label for="Existing Category">Select a Category:</label>
-    <%= f.fields_for :category, Category.all do |c| %>
-    <%= c.text_field :name %>
-  <% end %>
+    <%= f.collection_select :category, Category.all, :id, :name %>
   </div>
 
-    <p>Add a New Move</p>
+    <p>Add a New Category</p>
     <div>
-        <%= f.fields_for :moves do |m| %>
+        <%= f.fields_for :category do |m| %>
             <%= m.label :name %>
             <%= m.text_field :name %>
         <br>
