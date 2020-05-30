@@ -7,17 +7,15 @@ class WorkoutsController < ApplicationController
 
     
     def new
-        @workout = Workout.new
-                
-        @workout.moves.build
+        @workout = Workout.new     
         @workout.moves.build
     end
 
     def create 
-        binding.pry
+        
         @workout = Workout.new(workout_params)
         @workout.user_id = session[:user_id]
-        @workout.save
+        binding.pry
     if @workout.save!
         redirect_to workout_path(@workout)
     else
@@ -34,7 +32,7 @@ class WorkoutsController < ApplicationController
 
 
     def workout_params
-        params.require(:workout).permit(:title, :description, :time, :difficulty, :move_id, move_attributes: [:name])
+        params.require(:workout).permit(:title, :description, :time, :difficulty, moves_attributes: [:id, :name])
     end
 
 

@@ -21,18 +21,16 @@
 
     <div>
     <label for="Existing Move">Select a Move:</label>
-    <%= f.collection_select :move_id, Move.all, :id, :name, prompt: true%>
+    <%= f.fields_for :moves, Move.all do |m| %>
+    <%= m.text_field :name %>
+  <% end %>
   </div>
 
     <p>Add a New Move</p>
     <div>
         <%= f.fields_for :moves do |m| %>
-            <%= m.label :move %>
-            <%= m.text_field :name %><br>
-        <%= m.fields_for :reps do |r| %>
-            <%= m.label :reps %>
-            <%= r.number_field :quantity %>
-        <% end %>
+            <%= m.label :name %>
+            <%= m.text_field :name %>
         <br>
         <% end %>
     </div>
