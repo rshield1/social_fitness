@@ -6,6 +6,6 @@ class Workout < ApplicationRecord
     
 
     accepts_nested_attributes_for :moves
-    accepts_nested_attributes_for :reps
+    
    
 end

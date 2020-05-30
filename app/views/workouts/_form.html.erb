@@ -1,7 +1,7 @@
 <%= form_for(@workout) do |f| %>
     <div>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
     </div>
 
     <div>
@@ -18,22 +18,20 @@
         <%= f.label :difficulty %>
         <%= f.number_field :difficulty %>
     </div>
-    
-    
-    <p>Select an Existing Move</p>
+
     <div>
-        <%= f.label :moves %>
-        <%= f.collection_select :move_id, Move.all, :id, :name %>
-    </div>
+    <label for="Existing Move">Select a Move:</label>
+    <%= f.collection_select :move_id, Move.all, :id, :name, prompt: true%>
+  </div>
 
     <p>Add a New Move</p>
     <div>
         <%= f.fields_for :moves do |m| %>
-        <%= m.label :move %>
-        <%= m.text_field :name %><br>
-        <%= m.label :reps %>
-        <%= f.fields_for :rep_id do |r| %>
-        <%= r.number_field :rep_id.quantity %>
+            <%= m.label :move %>
+            <%= m.text_field :name %><br>
+        <%= m.fields_for :reps do |r| %>
+            <%= m.label :reps %>
+            <%= r.number_field :quantity %>
         <% end %>
         <br>
         <% end %>
