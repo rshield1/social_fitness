@@ -8,7 +8,7 @@ class WorkoutsController < ApplicationController
     
     def new
         @workout = Workout.new     
-        @workout.moves.build
+        @workout.build_category
     end
 
     def create 

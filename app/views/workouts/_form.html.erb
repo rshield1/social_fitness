@@ -20,9 +20,9 @@
     </div>
 
     <div>
-    <label for="Existing Move">Select a Move:</label>
-    <%= f.fields_for :moves, Move.all do |m| %>
-    <%= m.text_field :name %>
+    <label for="Existing Category">Select a Category:</label>
+    <%= f.fields_for :category, Category.all do |c| %>
+    <%= c.text_field :name %>
   <% end %>
   </div>
 
