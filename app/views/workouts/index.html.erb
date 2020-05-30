@@ -1,13 +1,10 @@
 <h1>All of the workouts!</h1>
 
 <% @workouts.each do |w| %>
-<%= w.user.username %>
-<p>NAME</p>
-<%= w.name %>
-<p>SETS</p>
-<%= w.sets %>
-<p>REPS</p>
-<%= w.reps %>
-<hr>
 
+<p>Name</p>
+<%= w.user.username %>
+<br>
+<p>Title of workout</p>
+<%= w.title %>
 <% end %>

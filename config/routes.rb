@@ -8,8 +8,11 @@ Rails.application.routes.draw do
  
   resources :users
   resources :moves
+
+  resources :categories
   
   resources :workouts do
-    resources :moves
+    resources :categories, only [:new, :index]
   end
+
 end
