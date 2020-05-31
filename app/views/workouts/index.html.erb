@@ -2,13 +2,14 @@
     <div id="cover-caption">
         <div class="container">
                 <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form h5-4">
-                        <div class="px-2">
+                        <div class="px-2 ">
 
-                            <div class="blk_center">
+                          <div class="card text-white bg-dark mb-3">  
                             <h1>All of the workouts!</h1>
-
+                          </div>
+                          <br>
                             <% @workouts.each do |w| %>
-
+                            <div class="blk_center row card-deck border-info mb-3">
                             <h3>Name - <%= w.user.username %></h3>
 
                             <h5>Title of workout - <%= w.title %></h5>
@@ -19,15 +20,16 @@
                             <%= link_to "Show workout", workout_path(w.id) %>
                             <%= link_to "Edit workout", edit_workout_path(w.id) %>
                             <%= link_to "Add a comment", new_workout_comment_path(w.id) %>
+                            </div>
                             <hr>
                             <% end %>
-                            </div>
+                        
 
-
-                    </div>
+                </div>
                 
-            </div>
+                
         </div> 
+      </div>
 </section>
 
 
