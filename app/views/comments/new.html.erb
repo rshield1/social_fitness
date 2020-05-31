@@ -1,19 +1,27 @@
-<h1>Add a comment</h1>
+<h1>Add a comment for <%= @comment.workout.title %></h1>
+<h4><%= @comment.workout.description %></h4>
 
 <%= form_for(@comment) do |c|%>
-    <%= c.hidden_field :workout_id %>
+    
   <br>
   <div>
     <%= c.label :title %>
+    <br>
     <%= c.text_field :title %>
   </div>
   <br>
   <div>
     <%= c.label :content %>
-    <%= c.text_area :content, size: "25x10" %>
+    <br>
+    <%= c.text_area :content, size: "30x10" %>
   </div>
   <br>
-
+  <%
+=begin%>
+ change the value of the workout id 
+<%
+=end%>
+  <%= c.hidden_field :workout_id %>
 
 
   <%= c.submit %>
