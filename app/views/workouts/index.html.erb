@@ -4,9 +4,12 @@
 
 <p>Name</p>
 <%= w.user.username %>
+<p>Title of workout - <%= w.title %></p>
+<p>Description of workout -  <%= w.description %> </p>
+<p>Time of Workout -  <%= w.time %> </p>
+<p>Difficulty - <%= w.difficulty %>  </p>
 <br>
-<p>Title of workout</p>
-<%= w.title %>
-<br>
+<%= link_to "Edit workout", edit_workout_path(w.id) %>
 <%= link_to "Add a comment", new_workout_comment_path(w.id) %>
+<hr>
 <% end %>
