@@ -20,7 +20,12 @@ class CommentsController < ApplicationController
     end
 
     def index
-        
+        # checks if nested
+        if @workout = Workout.find_by_id(params[:workout_id])
+            @comments = @workout.comments
+        else
+            @comments = Comment.all
+        end
     end
 
     def comments_params

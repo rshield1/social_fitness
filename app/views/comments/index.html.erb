@@ -1,0 +1,11 @@
+<h1>All comments</h1>
+
+<% @comments.each do |c| %>
+<%= c.workout.title %>
+<br>
+<%= c.title %>
+<br>
+<%= c.content %>
+<hr>
+
+<% end %>
