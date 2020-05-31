@@ -8,7 +8,13 @@
 
 require 'faker'
 
-10.times do
-    User.create(username: Faker::JapaneseMedia::DragonBall.character, password: "123456")
-    
+5.times do
+    User.create(username: Faker::Sports::Basketball.player, email: Faker::Internet.email, password: "123456")   
 end
+
+Category.create(name: "Strength")
+Category.create(name: "Cardio")
+Category.create(name: "Power")
+Category.create(name: "HIIT")
+Category.create(name: "Yoga")
+
