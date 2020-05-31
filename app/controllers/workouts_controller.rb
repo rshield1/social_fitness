@@ -14,8 +14,7 @@ class WorkoutsController < ApplicationController
     def create 
         @workout = Workout.new(workout_params)
         @workout.user_id = session[:user_id]
-        binding.pry
-    if @workout.save!
+    if @workout.save
         redirect_to workout_path(@workout)
     else
         render :new

@@ -1,6 +1,11 @@
 <h1>Add a comment for <%= @comment.workout.title %></h1>
 <h4><%= @comment.workout.description %></h4>
 
+
+
+<%= render partial: 'layouts/errors', locals: {obj: @comment} %>
+
+
 <%= form_for(@comment) do |c|%>
     
   <br>
