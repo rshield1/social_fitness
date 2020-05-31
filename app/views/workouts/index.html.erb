@@ -7,4 +7,7 @@
 <br>
 <p>Title of workout</p>
 <%= w.title %>
+
+
+<%= link_to "Add a comment", new_workout_comment_path(:w.id) %>
 <% end %>

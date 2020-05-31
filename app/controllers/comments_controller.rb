@@ -5,10 +5,29 @@ class CommentsController < ApplicationController
         @comment = @workout.comments.build
     end
 
+    def create
+        @comment = Comment.new(comments_params)
+        @comment.user_id = session[:user_id]
+        if @comment.save
+            redirect_to comment_path(@comment)
+        else
+            render :new
+        end
+    end
+
+    def show
+        @comment = Comment.find_by_id(params[:id])
+    end
 
     def index
-
+        
     end
+
+    def comments_params
+        params.require(:comment).permit(:workout_id, :title, :content)
+    end
+
+
 
 
     
