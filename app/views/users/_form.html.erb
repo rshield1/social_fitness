@@ -1,6 +1,4 @@
-
-
-<%= simple_form_for :user,
+<%= simple_form_for @user,
     wrapper_mappings: {
     boolean:       :custom_boolean,
     check_boxes:   :custom_collection,
@@ -12,20 +10,19 @@
     time:          :custom_multi_select,
     select:        :custom_multi_select
     } do |f| %>
-   
+    
 <%= f.error_notification %>
-
 <div class="form-group text-primary h5">
     <%= f.input :username %>
 </div>
-
+<div class="form-group text-primary h5">
+    <%= f.input :email %>
+</div>
 <div class="form-group text-primary h5">
     <%= f.input :password %>
 </div>
-
 <div class="form-group text-primary h5">
     <%= f.button :submit, class: "btn-primary" %>
+    <%= f.button :button, "Cancel", type: "reset", class: "btn-danger" %>
 </div>
-
-
 <% end %>
