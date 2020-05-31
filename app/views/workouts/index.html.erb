@@ -1,15 +1,35 @@
-<h1>All of the workouts!</h1>
+<section id="cover" class="min-vh-100">
+    <div id="cover-caption">
+        <div class="container">
+                <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form h5-4">
+                        <div class="px-2">
 
-<% @workouts.each do |w| %>
+                            <div class="blk_center">
+                            <h1>All of the workouts!</h1>
 
-<p>Name</p>
-<%= w.user.username %>
-<p>Title of workout - <%= w.title %></p>
-<p>Description of workout -  <%= w.description %> </p>
-<p>Time of Workout -  <%= w.time %> </p>
-<p>Difficulty - <%= w.difficulty %>  </p>
-<br>
-<%= link_to "Edit workout", edit_workout_path(w.id) %>
-<%= link_to "Add a comment", new_workout_comment_path(w.id) %>
-<hr>
-<% end %>
+                            <% @workouts.each do |w| %>
+
+                            <h3>Name - <%= w.user.username %></h3>
+
+                            <h5>Title of workout - <%= w.title %></h5>
+                            <h5>Description of workout -  <%= w.description %> </h5>
+                            <h5>Time of Workout -  <%= w.time %> </h5>
+                            <h5>Difficulty - <%= w.difficulty %>  </h5>
+                            <br>
+                            <%= link_to "Show workout", workout_path(w.id) %>
+                            <%= link_to "Edit workout", edit_workout_path(w.id) %>
+                            <%= link_to "Add a comment", new_workout_comment_path(w.id) %>
+                            <hr>
+                            <% end %>
+                            </div>
+
+
+                    </div>
+                
+            </div>
+        </div> 
+</section>
+
+
+
+<%= render 'style' %>
