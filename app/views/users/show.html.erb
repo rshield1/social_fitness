@@ -1,1 +1,28 @@
-<h1>Welcome <%= @user.username %></h1>
+<section id="cover" class="min-vh-100">
+    <div id="cover-caption">
+        <div class="container">
+                <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                    <%= image_tag("Main_logo.png", size: "300x50") %> 
+                    <div class="px-2">
+
+                        <h1>Welcome <div class="text-success"><%= @user.username %></div></h1>
+
+
+                            <h1>Your workouts</h1>
+                            <% @user.workouts.each do |w| %>
+                            <div class="blk_center text-light">
+                                <h4>Title - <%= w.title %><br></h4>
+                                <h4>Description -<%= w.description %><br>
+                                <h4>Time -<%= w.time %> Minutes<br>
+                                <h4>Difficulty -<%= w.difficulty %><br>
+                            </div>
+                                <hr>
+                            <% end %>
+
+                      </div>
+                    </div>
+        </div>
+    </div>
+</section>
+
+<%= render 'workouts/style' %>
