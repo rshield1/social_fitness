@@ -7,7 +7,14 @@
 
 
 <%= form_for(@comment) do |c|%>
-    
+    <% if params[:workout_id] %>
+    <%= c.hidden_field :workout_id %>
+  <% else %>
+    <div>
+      <%= c.label :workout_id, "Select a Workout" %>
+      <%= c.collection_select :workout_id, Workout.all, :id, :title, include_blank: true %>
+    </div>
+  <% end %>
   <br>
   <div>
     <%= c.label :title %>
@@ -21,11 +28,7 @@
     <%= c.text_area :content, size: "30x10" %>
   </div>
   <br>
-  <%
-=begin%>
- change the value of the workout id 
-<%
-=end%>
+
   <%= c.hidden_field :workout_id %>
 
 
