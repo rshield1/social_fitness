@@ -20,11 +20,11 @@
     </div>
 
     <div>
-    <label for="Existing Category">Select a Category:</label>
-    <%= f.collection_select :category, Category.all, :id, :name %>
+    <label for="Existing Category">Select an Existing Category:</label>
+    <%= f.collection_select :category, Category.all, :id, :name, include_blank: 'Select One' %>
   </div>
 
-    <p>Add a New Category</p>
+    <p>OR Add a New Category:</p>
     <div>
         <%= f.fields_for :category do |m| %>
             <%= m.label :name %>

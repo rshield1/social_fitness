@@ -9,6 +9,8 @@ class Workout < ApplicationRecord
     validates :description, presence: true
     validates :time, presence: true
     validates :difficulty, presence: true
+    validates :category, presence: true
+
     validate :already_exists
     
 
@@ -16,7 +18,10 @@ class Workout < ApplicationRecord
     
 
     def already_exists
-        Category.find_by(name: "")
+        workout = Workout.find_by(title: title, category_id: category_id)
+    if !!workout && workout != self
+      errors.add(:title, 'has already been added for that category')
+    end
 
     end
    
