@@ -3,11 +3,12 @@
         <div class="container">
                 <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form h5-4">
                         <div class="px-2 ">
-
-                          <div class="card text-white bg-dark mb-3">  
-                            <h1>All of the workouts!</h1>
-                          </div>
                           <br>
+                          <div class="card text-white bg-dark mb-3">  
+                            <h3>All of the workouts!</h3>
+                          </div>
+                          <hr>
+                          
                             <% @workouts.each do |w| %>
                             <div class="blk_center row card-deck border-info mb-3">
                             <h3>Name - <%= w.user.username %></h3>

@@ -2,7 +2,8 @@ class WorkoutsController < ApplicationController
     before_action :require_login
 
     def index
-        @workouts = Workout.all
+        @workouts = Workout.order_by_comments
+    
     end
 
     
