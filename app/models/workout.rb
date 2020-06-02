@@ -10,7 +10,6 @@ class Workout < ApplicationRecord
     validates :time, presence: true
     validates :difficulty, presence: true
     validates :category, presence: true
-
     validate :already_exists
     
 
@@ -22,7 +21,18 @@ class Workout < ApplicationRecord
     if !!workout && workout != self
       errors.add(:title, 'has already been added for that category')
     end
-
     end
+
+    #scope methods
+    def self.order_by_difficulty
+      order(difficulty: :desc)
+    end
+
+    def title_category
+
+      "#{title} - #{category.name}"
+    end
+
+
    
 end

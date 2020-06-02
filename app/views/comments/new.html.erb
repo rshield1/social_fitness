@@ -1,7 +1,4 @@
-<h1>Add a comment for <%= @comment.workout.title %></h1>
-<h4><%= @comment.workout.description %></h4>
-
-
+<h1>Add a comment</h1>
 
 <%= render partial: 'layouts/errors', locals: {obj: @comment} %>
 
@@ -12,7 +9,7 @@
   <% else %>
     <div>
       <%= c.label :workout_id, "Select a Workout" %>
-      <%= c.collection_select :workout_id, Workout.all, :id, :title, include_blank: true %>
+      <%= c.collection_select :workout_id, Workout.all.order_by_difficulty, :id, :title_category, include_blank: true %>
     </div>
   <% end %>
   <br>
