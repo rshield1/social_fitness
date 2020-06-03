@@ -6,7 +6,7 @@
                     <div class="px-2">
 
                         <h1>Welcome <div class="text-success"><%= @user.username %></div></h1>
-
+                        <%= image_tag (@user.image), size: "100"%>
 
                             <h1>Your workouts</h1>
                             <% @user.workouts.each do |w| %>
