@@ -12,4 +12,12 @@ class User < ApplicationRecord
     has_secure_password
 
     
+
+    def self.create_google_omniauth(auth)
+        self.find_or_create_by(email: auth[:info][:email]) do |u|
+            u.username = auth["info"]["name"]
+            u.password = SecureRandom.hex
+        end   
+    end
+
 end
