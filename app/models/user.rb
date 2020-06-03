@@ -11,6 +11,8 @@ class User < ApplicationRecord
     
     has_secure_password
 
+    has_one_attached :image
+
     
 
     def self.create_google_omniauth(auth)

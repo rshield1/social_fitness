@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+    before_action :require_login
 
     def new
         if @workout = Workout.find_by_id(params[:workout_id])
