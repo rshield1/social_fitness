@@ -19,4 +19,13 @@ def destroy
 end
 
 
+def omniauth
+    binding.pry
+    User.find_or_create_by(email: auth[:info][:email])
+    
+
+end
+
+def auth
+    request.env['omniauth.auth']
 end
