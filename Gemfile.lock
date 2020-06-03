@@ -252,6 +252,7 @@ DEPENDENCIES
   dotenv-rails
   faker!
   jbuilder (~> 2.7)
+  omniauth
   omniauth-google-oauth2
   pry
   puma (~> 4.1)
