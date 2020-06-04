@@ -35,11 +35,11 @@ class Workout < ApplicationRecord
       "#{title} - #{category.name}"
     end
 
-def category_attributes=(category_attributes)
-  binding.pry
-  #find or create category
+# def category_attributes=(category_attributes)
+#   binding.pry
+#   #find or create category
   
-end
+# end
 
    
 end

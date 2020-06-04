@@ -19,15 +19,19 @@
         <%= f.number_field :difficulty, min: 1, max: 5 %>
     </div>
 
+    <%
+=begin%>
  <div>
-   <%= f.label :category, "Category" %>:
-  <%= f.text_field :category_id, list: 'category_attributes'  %>
-    <datalist id="category_attributes">
-    <% Category.all.each do |c| %>
-      <option value="<%= c.name %>"></option>
-    <% end %>
-</datalist>
-  </div>
+      <%= f.label :category, "Category" %>:
+      <%= f.text_field :category_id, list: 'category_attributes'  %>
+        <datalist id="category_attributes">
+        <% Category.all.each do |c| %>
+          <option value="<%= c.name %>"></option>
+        <% end %>
+      </datalist>
+      </div> 
+<%
+=end%>
 
     <div>
     <label for="Existing Category">Select an Existing Category:</label>
