@@ -32,6 +32,7 @@ class WorkoutsController < ApplicationController
 
     def update
         @workout = Workout.find_by(id: params[:id])
+        binding.pry
         if @workout.update(workout_params)
             redirect_to workouts_path
         else

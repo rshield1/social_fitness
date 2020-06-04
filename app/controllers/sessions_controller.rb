@@ -13,10 +13,12 @@ def create
     end
 end
 
+
 def destroy
-    session.delete(:user_id)
-    redirect_to '/'
-end
+    session.delete(:current_user_id)
+    flash[:notice] = "You have successfully logged out."
+    redirect_to '/', notice: "You have successfully logged out."
+  end
 
 
 def omniauth

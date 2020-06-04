@@ -13,7 +13,7 @@ class Workout < ApplicationRecord
     validate :already_exists
     
 
-    # accepts_nested_attributes_for :category
+    accepts_nested_attributes_for :category
 
     scope :order_by_comments, -> { left_joins(:comments).group(:id).order("title desc")}
     
@@ -35,15 +35,14 @@ class Workout < ApplicationRecord
       "#{title} - #{category.name}"
     end
 
-    def category_attributes=(category_hashes)
-      #find or create category
-      category_hashes.each do |i, category_attributes|
-        #find the actural category 
-      category = Category.find_or_create_by(:name: category_attributes[:name] )
-      #push it into workout
-      self.categories.build(:category => category)
-    end
-  end
+    # def category_attributes=(category_hashes)
+    #   category_hashes.each do |i, category_attributes|
+    #     #find the actural category 
+    #   category = Category.find_or_create_by(:name: category_attributes[:name])
+    #   #push it into workout
+    #   self.categories.build(:category => category)
+    #   end
+    # end
 
 
    
