@@ -37,9 +37,9 @@ class Workout < ApplicationRecord
     end
 
     # def category_attributes=(category_hashes)
-    #   category_hashes.each do |i, category_attributes|
+    #   category_hashes.each do |k, v|
     #     #find the actural category 
-    #   category = Category.find_or_create_by(:name: category_attributes[:name])
+    #   category = Category.find_or_create_by(name: v[:name])
     #   #push it into workout
     #   self.categories.build(:category => category)
     #   end
