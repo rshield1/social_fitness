@@ -9,11 +9,11 @@ class Workout < ApplicationRecord
     validates :description, presence: true
     validates :time, presence: true
     validates :difficulty, presence: true
-    validates :category, presence: true
+    validates :category, presence: true, uniqueness: true
     validate :already_exists
     
 
-    accepts_nested_attributes_for :category
+    # accepts_nested_attributes_for :category
 
     scope :order_by_comments, -> { left_joins(:comments).group(:id).order("title desc")}
     
@@ -35,11 +35,16 @@ class Workout < ApplicationRecord
       "#{title} - #{category.name}"
     end
 
-# def category_attributes=(category_attributes)
-#   binding.pry
-#   #find or create category
-  
-# end
+    def category_attributes=(category_hashes)
+      #find or create category
+      category_hashes.each do |i, category_attributes|
+        #find the actural category 
+      category = Category.find_or_create_by(:name: category_attributes[:name] )
+      #push it into workout
+      self.categories.build(:category => category)
+    end
+  end
+
 
    
 end
