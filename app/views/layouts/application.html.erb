@@ -39,15 +39,9 @@
               </a>
         </li>
 
-        <%
+ <%
 =begin%>
- I want to only show rest of nav bar if user is signed in 
-<%
-=end%>
-
-<%
-=begin%>
- <% if signed_in?(session) %> 
+ <% if logged_in? %> 
 <%
 =end%>
         <li class="nav-item">
@@ -56,23 +50,13 @@
         <li class="nav-item">
            <a class="nav-link" <%= link_to  "All Workouts", workouts_path %> </a>
         </li>
-     <li class="nav-item">
-           <a class="nav-link" <%= link_to  "New Comment", new_comment_path %> </a>
-        </li>
         <li class="nav-item">
-        
            <a class="nav-link" <%= link_to  "All Categories", categories_path %> </a>
         </li>
-        <%
-=begin%>
- <li class="nav-item">
-           <a class="nav-link" <%= link_to  "User Home", user_path(@user) %> </a>
-        </li> 
-<%
-=end%>
         <li class="nav-item">
           <a class="nav-link" <%= link_to  "Log Out", logout_path, method: :delete %> </a>
         </li>
+  <% end %> 
       </ul>
     </div>
   </div>

@@ -19,8 +19,9 @@
                             <h5>Difficulty - <%= w.difficulty %>  </h5>
                             <h5>Comments - <%= w.comments.count %>  </h5>
                             <br>
-                            <%= link_to "Show workout", workout_path(w.id) %>
+                            <%= link_to "Show workout/Comments", workout_path(w.id) %>
                             <%= link_to "Edit workout", edit_workout_path(w.id) %>
+                            <br>
                             <%= link_to "Add a comment", new_workout_comment_path(w.id) %>
                             </div>
                             <hr>

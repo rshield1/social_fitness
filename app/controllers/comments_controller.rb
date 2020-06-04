@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
         @comment = Comment.new(comments_params)
         @comment.user_id = session[:user_id]
         if @comment.save
-            redirect_to comment_path(@comment)
+            redirect_to workout_path(@comment.workout_id)
         else
             render :new
         end
@@ -21,6 +21,10 @@ class CommentsController < ApplicationController
 
     def show
         @comment = Comment.find_by_id(params[:id])
+    end
+
+    def edit
+        @comment = Comment.find_by(id: params[:id])
     end
 
     def index

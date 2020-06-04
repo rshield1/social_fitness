@@ -32,16 +32,22 @@ class WorkoutsController < ApplicationController
 
     def update
         @workout = Workout.find_by(id: params[:id])
-        binding.pry
         if @workout.update(workout_params)
             redirect_to workouts_path
         else
             render :edit
         end
-
-
     end
 
+    def destroy 
+        @workout = Workout.find_by(id: params[:id])
+        if @workout && @workout.user == current_user
+            @workout.destroy
+            redirect_to workouts_path
+        else
+            redirect_to workouts_path
+        end
+    end
 
     private
 

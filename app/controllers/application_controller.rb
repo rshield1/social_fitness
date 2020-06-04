@@ -16,6 +16,11 @@ private
       redirect_to login_path unless session[:user_id]
   end
 
+  def logged_in?
+    #is there a user id in our session check if true or false?
+    session[:user_id] ? true : false
+  end
+
 
 
     
