@@ -16,7 +16,7 @@ class Workout < ApplicationRecord
 
     # accepts_nested_attributes_for :category
 
-    scope :order_by_comments, -> { left_joins(:comments).group(:id).order("title desc")}
+    scope :order_by_comments, -> { left_joins(:comments).group(:id).order("title asc")}
     
 
     def already_exists
