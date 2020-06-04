@@ -3,14 +3,15 @@
         <div class="container">
                 <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
 
-            <h1>Show Workout Page</h1>
-            <%= @workout.each do |w| %><br>
-            <%= w.title %><br>
-            <%= w.description %><br>
-            <%= w.time %><br>
-            <%= w.difficulty %><br>
-            <%= w.category.name %><br>
-            <% end %>
+                            <h1>Show Workout Page</h1>
+                            <div class="blk_center row card-deck border-info mb-3">
+                            <h3>Name - <%= @workout.user.username %></h3>
+
+                            <h3>Title of workout - <%= @workout.title %></h3>
+                            <h3>Description of workout -  <%= @workout.description %> </h3>
+                            <h3>Time of Workout -  <%= @workout.time %> Minutes</h3>
+                            <h3>Difficulty - <%= @workout.difficulty %>  </h3>
+                            </div>
 
 
 

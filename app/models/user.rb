@@ -1,6 +1,6 @@
 class User < ApplicationRecord
     has_many :comments
-    has_many :posted_workouts, through: :comments, source: :ice_cream
+    has_many :workouts, through: :comments
     #what is this referring to??
 
     has_many :workouts #created workouts

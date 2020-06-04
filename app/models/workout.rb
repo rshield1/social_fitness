@@ -11,6 +11,7 @@ class Workout < ApplicationRecord
     validates :difficulty, presence: true
     validates :category, presence: true, uniqueness: true
     validate :already_exists
+    validates_uniqueness_of :category
     
 
     accepts_nested_attributes_for :category

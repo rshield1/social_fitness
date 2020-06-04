@@ -15,7 +15,7 @@ end
 
 
 def destroy
-    session.delete(:current_user_id)
+    session.delete(:user_id)
     flash[:notice] = "You have successfully logged out."
     redirect_to '/', notice: "You have successfully logged out."
   end
