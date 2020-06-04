@@ -32,26 +32,25 @@
       </div> 
 <%
 =end%>
-
-    <%
+   
+        <%
 =begin%>
- <div>
-    <label for="Existing Category">Select an Existing Category:</label>
-    <%= f.collection_select :category, Category.all, :id, :name, include_blank: 'Select One' %>
-  </div> 
+ <label for="Existing Category">Select an Existing Category:</label>
+        <%= f.collection_select :category, Category.all, :id, :name, include_blank: 'No Category' %> 
 <%
 =end%>
+    
 
-    <p>OR Add a New Category:</p>
+    <p>Add A Category:</p>
     <div>
         <%= f.fields_for :category do |m| %>
             <%= m.label :name %>
             <%= m.text_field :name %>
-        <datalist id="first-name">
+        <datalist id="category_name">
             <% Category.all.each do |c| %>
-            <option value="<%= c.name %>"></option>
+           <option value = "<%= c.name %>"  ></option>
             <% end %>
-            </datalist>
+        </datalist>
         <br>
         <% end %>
     </div>

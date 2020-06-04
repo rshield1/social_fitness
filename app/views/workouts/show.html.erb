@@ -12,6 +12,15 @@
                             <h3>Time of Workout -  <%= @workout.time %> Minutes</h3>
                             <h3>Difficulty - <%= @workout.difficulty %>  </h3>
                             </div>
+                            <br>
+                            <div class="blk_center row card-deck border-primary mb-3 text-warning">
+                            <% @comments.all.each do |c| %>
+                                <h5><%= c.user.username %>'s comment</h5>
+                                <h5>Title - <%= c.title %></h5>
+                                <h5><%= c.content %></h5>
+                                <h5> Created-at <%= c.created_at %></h5>
+                                <% end %> 
+                            </div>
 
 
 

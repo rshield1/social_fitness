@@ -3,7 +3,6 @@ class WorkoutsController < ApplicationController
 
     def index
         @workouts = Workout.order_by_comments
-    
     end
 
     
@@ -24,6 +23,7 @@ class WorkoutsController < ApplicationController
 
     def show
         @workout = Workout.find_by(id: params[:id])
+        @comments = @workout.comments
     end
 
     def edit
