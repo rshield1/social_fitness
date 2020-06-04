@@ -39,15 +39,15 @@ class WorkoutsController < ApplicationController
         end
     end
 
-    def destroy 
-        @workout = Workout.find_by(id: params[:id])
-        if @workout && @workout.user == current_user
-            @workout.destroy
-            redirect_to workouts_path
-        else
-            redirect_to workouts_path
-        end
-    end
+    # def destroy 
+    #     @workout = Workout.find_by(id: params[:id])
+    #     if @workout && @workout.user == current_user
+    #         @workout.destroy
+    #         redirect_to workouts_path
+    #     else
+    #         redirect_to workouts_path
+    #     end
+    # end
 
     private
 

@@ -18,6 +18,7 @@
                             <h5>Time of Workout -  <%= w.time %> Minutes</h5>
                             <h5>Difficulty - <%= w.difficulty %>  </h5>
                             <h5>Comments - <%= w.comments.count %>  </h5>
+                            <h5>Category - <%= w.category.name %>
                             <br>
                             <%= link_to "Show workout/Comments", workout_path(w.id) %>
                             <%= link_to "Edit workout", edit_workout_path(w.id) %>

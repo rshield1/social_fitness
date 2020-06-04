@@ -14,7 +14,7 @@ class Workout < ApplicationRecord
     validates_uniqueness_of :category
     
 
-    accepts_nested_attributes_for :category
+    # accepts_nested_attributes_for :category
 
     scope :order_by_comments, -> { left_joins(:comments).group(:id).order("title desc")}
     
@@ -36,14 +36,12 @@ class Workout < ApplicationRecord
       "#{title} - #{category.name}"
     end
 
-    # def category_attributes=(category_hashes)
-    #   category_hashes.each do |k, v|
-    #     #find the actural category 
-    #   category = Category.find_or_create_by(name: v[:name])
-    #   #push it into workout
-    #   self.categories.build(:category => category)
-    #   end
-    # end
+    def category_attributes=(hash)
+
+      category = Category.find_or_create_by(name: hash[:name])
+      #push it into workout
+      self.category = category
+    end
 
 
    
