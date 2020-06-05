@@ -9,18 +9,11 @@
                         <%= image_tag (@user.image), size: "100"%>
 
                             <h1>Your workouts</h1>
-                            <% @user.workouts.each do |w| %>
-                            <div class="blk_center text-light">
-                                <h4>Title - <%= w.title %><br></h4>
-                                <h4>Description -<%= w.description %><br>
-                                <h4>Time -<%= w.time %> Minutes<br>
-                                <h4>Difficulty -<%= w.difficulty %><br>
-                            </div>
-                                <hr>
-                            <% end %>
+                            
+                            <%= render 'workouts' %>
 
-                      </div>
-                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

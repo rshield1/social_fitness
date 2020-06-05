@@ -1,0 +1,16 @@
+<% @user.workouts.each do |w| %>
+    <div class="blk_center text-light">
+        <h4>Title - <%= w.title %><br></h4>
+        <h4>Description -<%= w.description %><br>
+        <h4>Time -<%= w.time %> Minutes<br>
+        <h4>Difficulty -<%= w.difficulty %><br>
+    <%= link_to "Show workout/Comments", workout_path(w.id) %>
+    <br>
+    <%= link_to "Edit workout", edit_workout_path(w.id) if w.user_id == session[:user_id] %>
+    <br>
+    <%= link_to "Delete workout", workout_path(w), :confirm => "Are you sure?", :method => :delete if w.user_id == session[:user_id] %>
+    <br>
+    <%= link_to "Add a comment", new_workout_comment_path(w.id) %>
+    </div>
+        <hr>
+<% end %>
