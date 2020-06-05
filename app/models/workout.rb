@@ -12,9 +12,6 @@ class Workout < ApplicationRecord
     validates :category, presence: true, uniqueness: true
     validate :already_exists
     validates_uniqueness_of :category
-    
-
-    # accepts_nested_attributes_for :category
 
     scope :order_by_creation, -> { left_joins(:comments).group(:id).order("id desc")}
     
@@ -32,12 +29,11 @@ class Workout < ApplicationRecord
     end
 
     def title_category
-
-      "#{title} - #{category.name}"
+     "#{title} - #{category.name}"
     end
 
-    def category_attributes=(hash)
 
+    def category_attributes=(hash)
       category = Category.find_or_create_by(name: hash[:name])
       #push it into workout
       self.category = category
