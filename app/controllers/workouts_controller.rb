@@ -1,5 +1,6 @@
 class WorkoutsController < ApplicationController
     before_action :require_login
+    
 
     def index
         @workouts = Workout.order_by_creation

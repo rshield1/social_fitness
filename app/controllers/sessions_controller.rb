@@ -6,7 +6,9 @@ end
 def create
     @user = User.find_by(username: params[:user][:username])
     if @user && @user.authenticate(params[:user][:password])
-        session[:user_id] = @user.id
+        create_session
+        binding.pry
+
         redirect_to user_path(@user)
     else
         redirect_to login_path
@@ -24,7 +26,7 @@ def destroy
 def omniauth
     @user = User.create_google_omniauth(auth)
     if @user
-        session[:user_id] = @user.id
+        create_session
         redirect_to user_path(@user)
     else
         redirect_to login_path
