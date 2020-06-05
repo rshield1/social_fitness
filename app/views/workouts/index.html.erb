@@ -21,7 +21,11 @@
                             <h5>Category - <%= w.category.name %>
                             <br>
                             <%= link_to "Show workout/Comments", workout_path(w.id) %>
-                            <%= link_to "Edit workout", edit_workout_path(w.id) %>
+                            <br>
+                            <%= link_to "Edit workout", edit_workout_path(w.id) if w.user_id == session[:user_id] %>
+                            <br>
+                            <%= link_to "Delete workout", workout_path(w), :confirm => "Are you sure?", :method => :delete if w.user_id == session[:user_id] %>
+                            
                             <br>
                             <%= link_to "Add a comment", new_workout_comment_path(w.id) %>
                             </div>
