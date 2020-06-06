@@ -1,34 +1,19 @@
-<h1>Add a comment</h1>
+<section id="cover" class="min-vh-100">
+    <div id="cover-caption">
+        <div class="container">
+                <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                    <h1 class="display-4 py-2 text-truncate text-primary">Add a comment</h1>
+                        <div class="px-2">
 
-<%= render partial: 'layouts/errors', locals: {obj: @comment} %>
+                          <%= render partial: 'layouts/errors', locals: {obj: @comment} %>
 
-
-<%= form_for(@comment) do |c|%>
-    <% if params[:workout_id] %>
-    <%= c.hidden_field :workout_id %>
-  <% else %>
-    <div>
-      <%= c.label :workout_id, "Select a Workout" %>
-      <%= c.collection_select :workout_id, Workout.all.order_by_difficulty, :id, :title_category, include_blank: true %>
-    </div>
-  <% end %>
-  <br>
-  <div>
-    <%= c.label :title %>
-    <br>
-    <%= c.text_field :title %>
-  </div>
-  <br>
-  <div>
-    <%= c.label :content %>
-    <br>
-    <%= c.text_area :content, size: "30x10" %>
-  </div>
-  <br>
-
-  <%= c.hidden_field :workout_id %>
+                                        <%= render 'form' %>
+                          </div>
+                </div>
+            
+        </div>
+    </div> 
+</section>
 
 
-  <%= c.submit %>
-
-<% end %>
+<%= render 'workouts/style' %>

@@ -1,0 +1,29 @@
+<%= form_for(@comment) do |c|%>
+    <% if params[:workout_id] %>
+    <%= c.hidden_field :workout_id %>
+  <% else %>
+    <div>
+      <%= c.label :workout_id, "Select a Workout" %>
+      <%= c.collection_select :workout_id, Workout.all.order_by_difficulty, :id, :title_category, include_blank: true %>
+    </div>
+  <% end %>
+  <br>
+  <div>
+    <%= c.label :title %>
+    <br>
+    <%= c.text_field :title %>
+  </div>
+  <br>
+  <div>
+    <%= c.label :content %>
+    <br>
+    <%= c.text_area :content, size: "50x10" %>
+  </div>
+  <br>
+
+  <%= c.hidden_field :workout_id %>
+
+
+  <%= c.submit %>
+
+<% end %>
