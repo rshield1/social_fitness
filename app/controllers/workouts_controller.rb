@@ -3,7 +3,20 @@ class WorkoutsController < ApplicationController
     
 
     def index
-        @workouts = Workout.order_by_creation
+        @workouts = Workout.all
+
+        if !params[:user].blank?
+            @workouts = Workout.all
+        elsif !params[:date].blank?
+            if params[:date] == "Today"
+              @workouts = Workout.from_today
+            else
+              @workouts = Workout.old_news
+            end
+          else
+            # if no filters are applied, show all workouts
+            @workouts = Workout.order_by_comments
+          end
     end
 
     

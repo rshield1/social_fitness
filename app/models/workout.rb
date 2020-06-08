@@ -13,8 +13,33 @@ class Workout < ApplicationRecord
     validate :already_exists
     validates_uniqueness_of :category
 
-    scope :order_by_creation, -> { left_joins(:comments).group(:id).order("id desc")}
-    
+
+    #scope methods
+    scope :order_by_comments, -> { left_joins(:comments).group(:id).order("id asc")}
+
+     
+    def self.order_by_difficulty
+      order(difficulty: :desc)
+    end   
+
+    def self.by_user(user_id)
+      where(user: user_id)
+    end
+
+    def self.from_today
+      where("created_at >=?", Time.zone.today.beginning_of_day)
+    end
+     
+    def self.old_news
+      where("created_at <?", Time.zone.today.beginning_of_day)
+    end
+
+
+
+
+
+
+
 
     def already_exists
         workout = Workout.find_by(title: title, category_id: category_id)
@@ -23,10 +48,7 @@ class Workout < ApplicationRecord
     end
     end
 
-    #scope methods
-    def self.order_by_difficulty
-      order(difficulty: :desc)
-    end
+
 
     def title_category
      "#{title} - #{category.name}"

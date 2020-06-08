@@ -5,6 +5,15 @@
                         <div class="px-2 ">
                           <br>
                           <div class="card text-white bg-dark mb-3">  
+                        <div>
+                          <h3>Filter posts:</h3>
+                          <%= form_tag("/workouts", method: "get") do %>
+                            <%= select_tag "date", options_for_select(["Today", "Old News"]), include_blank: true %>
+                            <%= submit_tag "Filter" %>
+                          <% end %>
+                        </div>
+
+
                             <h3>All of the workouts!</h3>
                           </div>
                           <hr>
