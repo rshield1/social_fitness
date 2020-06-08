@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     end
 
     def index
-        redirect_to "/"
+        @users = User.all
     end
 
     def create

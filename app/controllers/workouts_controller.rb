@@ -14,7 +14,7 @@ class WorkoutsController < ApplicationController
               @workouts = Workout.old_news
             end
           else
-            # if no filters are applied, show all workouts
+            # if no filters are applied, show all workouts by most comments
             @workouts = Workout.order_by_comments
           end
     end

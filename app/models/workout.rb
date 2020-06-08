@@ -9,9 +9,8 @@ class Workout < ApplicationRecord
     validates :description, presence: true
     validates :time, presence: true
     validates :difficulty, presence: true
-    validates :category, presence: true, uniqueness: true
     validate :already_exists
-    validates_uniqueness_of :category
+    
 
 
     #scope methods

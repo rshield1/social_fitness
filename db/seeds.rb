@@ -5,8 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
 require 'faker'
+
+Comment.destroy_all
+Workout.destroy_all
+Category.destroy_all
+
 
 5.times do
     User.create(username: Faker::Sports::Basketball.player, email: Faker::Internet.email, password: "123456")   
@@ -17,4 +21,3 @@ Category.create(name: "Cardio")
 Category.create(name: "Power")
 Category.create(name: "HIIT")
 Category.create(name: "Yoga")
-
