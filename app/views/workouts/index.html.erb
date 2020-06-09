@@ -5,10 +5,11 @@
                         <div class="px-2 ">
                           <br>
                           <div class="card text-white bg-dark mb-3">  
+
                         <div>
                           <h3>Filter posts:</h3>
                           <%= form_tag("/workouts", method: "get") do %>
-                            <%= select_tag "date", options_for_select(["Today", "Old News"]), include_blank: true %>
+                            <%= select_tag "date", options_for_select(["Today", "Past"]), include_blank: true %>
                             <%= submit_tag "Filter" %>
                           <% end %>
                         </div>
@@ -21,6 +22,7 @@
                             <% @workouts.each do |w| %>
                             <div class="blk_center row card-deck border-info mb-3">
                             <h3>Name - <%= w.user.username %></h3>
+                            <%= image_tag (w.user.image), :size => "100x80" %>
 
                             <h5>Title of workout - <%= w.title %></h5>
                             <h5>Description of workout -  <%= w.description %> </h5>

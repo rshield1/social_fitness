@@ -7,7 +7,7 @@
                         <div class="px-2 blk_center row card-deck border-light mb-3">
 
                         <% @comments.each do |c| %>
-                        <h4 class="text-primary"><%= c.user.username %> posted: </h4>
+                        <h4 class="text-primary"><%= image_tag (c.user.image), size: "50" %><%= c.user.username %> posted: </h4>
                         <p class="text-light"><%= c.content %><p>
                         <p class="text-success"> Created-at <%= c.created_at %></p>
                         <hr>

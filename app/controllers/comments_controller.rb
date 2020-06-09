@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
         if @comment.save
             redirect_to workouts_path
         else
-            render :new
+            redirect_to workouts_path
         end
     end
 

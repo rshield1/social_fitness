@@ -9,9 +9,9 @@ class WorkoutsController < ApplicationController
             @workouts = Workout.all
         elsif !params[:date].blank?
             if params[:date] == "Today"
-              @workouts = Workout.from_today
+              @workouts = Workout.today
             else
-              @workouts = Workout.old_news
+              @workouts = Workout.past
             end
           else
             # if no filters are applied, show all workouts by most comments

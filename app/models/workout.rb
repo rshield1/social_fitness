@@ -25,11 +25,11 @@ class Workout < ApplicationRecord
       where(user: user_id)
     end
 
-    def self.from_today
+    def self.today
       where("created_at >=?", Time.zone.today.beginning_of_day)
     end
      
-    def self.old_news
+    def self.past
       where("created_at <?", Time.zone.today.beginning_of_day)
     end
 
