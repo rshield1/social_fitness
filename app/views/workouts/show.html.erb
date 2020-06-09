@@ -8,18 +8,19 @@
                             <h3>Name - <%= @workout.user.username %></h3>
 
                             <h3>Title of workout - <%= @workout.title %></h3>
-                            <h3>Description of workout -  <%= @workout.description %> </h3>
-                            <h3>Time of Workout -  <%= @workout.time %> Minutes</h3>
+                            <p>Description of workout -  <%= @workout.description %> </p>
+                            <p>Time of Workout -  <%= @workout.time %> Minutes</p>
                             <h3>Difficulty - <%= @workout.difficulty %>  </h3>
                             </div>
                             <br>
                             <div class="blk_center row card-deck border-primary mb-3 text-warning">
                             <% @comments.all.each do |c| %>
-                                <h5 class="text-info"><%= c.user.username.capitalize %>'s comment</h5>
-                                <h5><%= c.content %></h5>
+                                <h5 class="text-info"><%= c.user.username.capitalize %>'s title</h5>
+                                <h5>Title - <%= c.title %></h5>
                                 <h5> Created-at <%= c.created_at %></h5>
                                 <hr>
                                 <% end %> 
+                                <%= link_to  "View Comments", workout_comments_path(@workout) %>
                             </div>
 
 

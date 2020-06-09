@@ -39,25 +39,4 @@
 
 
 
- <%
-=begin%>
- <div>
-      <%= f.label :category, "Category" %>:
-      <%= f.text_field :category_id, list: 'category_attributes'  %>
-        <datalist id="category_attributes">
-        <% Category.all.each do |c| %>
-          <option value="<%= c.name %>"></option>
-        <% end %>
-      </datalist>
-</div>  
-<%
-=end%>
-
-
-   
-        <%
-=begin%>
- <label for="Existing Category">Select an Existing Category:</label>
-        <%= f.collection_select :category, Category.all, :id, :name, include_blank: 'No Category' %> 
-<%
-=end%>
+ 

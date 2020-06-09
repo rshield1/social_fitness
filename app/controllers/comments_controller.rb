@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
         @comment = Comment.new(comments_params)
         @comment.user_id = session[:user_id]
         if @comment.save
-            redirect_to workout_path(@comment.workout_id)
+            redirect_to workouts_path
         else
             render :new
         end

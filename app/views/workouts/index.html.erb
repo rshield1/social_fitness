@@ -29,7 +29,7 @@
                             <h5>Comments - <%= w.comments.count %>  </h5>
                             <h5>Category - <%= w.category.name %>
                             <br>
-                            <%= link_to "Show workout/Comments", workout_path(w.id) %>
+                            <%= link_to "Show workout", workout_path(w.id) %>
                             <br>
                             <%= link_to "Edit workout", edit_workout_path(w.id) if w.user_id == session[:user_id] %>
                             <br>
