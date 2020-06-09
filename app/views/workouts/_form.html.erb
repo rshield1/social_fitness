@@ -19,28 +19,6 @@
         <%= f.number_field :difficulty, min: 1, max: 5 %>
     </div>
 
-    <%
-=begin%>
- <div>
-      <%= f.label :category, "Category" %>:
-      <%= f.text_field :category_id, list: 'category_attributes'  %>
-        <datalist id="category_attributes">
-        <% Category.all.each do |c| %>
-          <option value="<%= c.name %>"></option>
-        <% end %>
-      </datalist>
-      </div> 
-<%
-=end%>
-   
-        <%
-=begin%>
- <label for="Existing Category">Select an Existing Category:</label>
-        <%= f.collection_select :category, Category.all, :id, :name, include_blank: 'No Category' %> 
-<%
-=end%>
-    
-
     <p>Add A Category:</p>
     <div>
         <%= f.fields_for :category do |m| %>
@@ -56,3 +34,30 @@
     </div>
         <%= f. submit %>
 <% end %>
+
+
+
+
+
+ <%
+=begin%>
+ <div>
+      <%= f.label :category, "Category" %>:
+      <%= f.text_field :category_id, list: 'category_attributes'  %>
+        <datalist id="category_attributes">
+        <% Category.all.each do |c| %>
+          <option value="<%= c.name %>"></option>
+        <% end %>
+      </datalist>
+</div>  
+<%
+=end%>
+
+
+   
+        <%
+=begin%>
+ <label for="Existing Category">Select an Existing Category:</label>
+        <%= f.collection_select :category, Category.all, :id, :name, include_blank: 'No Category' %> 
+<%
+=end%>
