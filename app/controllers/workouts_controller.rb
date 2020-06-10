@@ -1,6 +1,6 @@
 class WorkoutsController < ApplicationController
     before_action :require_login
-    before_action :set_workout,only: [:edit, :update, :show, :destroy]
+    before_action :set_workout, only: [:edit, :update, :show, :destroy]
     
 
     def index
@@ -54,7 +54,8 @@ class WorkoutsController < ApplicationController
     end
 
     def destroy 
-        if session[:user_id] != @workout.user_id
+        binding.pry
+        if current_user_check != @workout.user_id
             redirect_to user_path(session[:user_id])
         else 
             @workout.destroy

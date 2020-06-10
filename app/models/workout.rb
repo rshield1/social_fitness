@@ -1,5 +1,5 @@
 class Workout < ApplicationRecord
-    belongs_to :user, dependent: :destroy
+    belongs_to :user 
     belongs_to :category
 
     has_many :comments
