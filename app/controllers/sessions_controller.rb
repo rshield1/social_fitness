@@ -26,6 +26,9 @@ def omniauth
     if @user
         create_session
         redirect_to user_path(@user)
+    elsif @user.save
+        create_session
+        redirect_to user_path(@user)
     else
         redirect_to login_path
     end

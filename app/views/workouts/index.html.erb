@@ -22,7 +22,7 @@
                             <% @workouts.each do |w| %>
                             <div class="blk_center row card-deck border-info mb-3">
                             <h3>Name - <%= w.user.username %></h3>
-                            <%= image_tag (w.user.image), :size => "100x80" %>
+                            <%= check_image(w.user) %>
 
                             <h5>Title of workout - <%= w.title %></h5>
                             <h5>Description of workout -  <%= w.description %> </h5>

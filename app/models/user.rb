@@ -6,8 +6,7 @@ class User < ApplicationRecord
     
     validates :username, uniqueness: true, presence: true, length: { minimum: 5}
     validates :email, uniqueness: true, presence: true
-    validates :password, length: { in: 6..20 }
-    validates :image, presence: true
+    validates :password, length: { in: 6..100 }
     
     has_secure_password
 
@@ -20,9 +19,8 @@ class User < ApplicationRecord
             
             u.username = auth["info"]["name"]
             u.password = SecureRandom.hex
-            u.image = auth["info"]["image"] 
     
-        end   
+        end  
     end
 
 end

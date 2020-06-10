@@ -8,7 +8,7 @@
 
                             <% @users.each do |u| %>
                             <div class="blk_center row card-deck border-info mb-3">
-                            <h3><%= image_tag (u.image), :size => "100x80" unless u.image.attachment == nil%> User - <%= u.username %></h3>
+                            <h3><%= check_image(u)%> User - <%= u.username %></h3>
                             <h5>Created on - <%= u.created_at %><h5>
                             </div>
                             

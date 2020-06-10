@@ -4,6 +4,7 @@ class WorkoutsController < ApplicationController
     
 
     def index
+    
         @workouts = Workout.all
         if !params[:user].blank?
             @workouts = Workout.all

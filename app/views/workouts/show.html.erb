@@ -5,7 +5,7 @@
 
                             <h1>Show Workout Page</h1>
                             <div class="blk_center row card-deck border-info text-white mb-3">
-                            <h3><%= image_tag (@workout.user.image), :size => "70x60" %><%= @workout.user.username %></h3>
+                            <h3><%= check_image(@workout.user) %><%= @workout.user.username %></h3>
 
                             <h3>Title of workout - <%= @workout.title %></h3>
                             <p>Description of workout -  <%= @workout.description %> </p>
@@ -15,7 +15,7 @@
                             <br>
                             <div class="blk_center row card-deck border-primary mb-3 text-warning">
                             <% @comments.all.each do |c| %>
-                                <%= image_tag (c.user.image), :size => "70x60" %>
+                                <%= check_image(c.user) %> 
                                 <h5 class="text-info"><%= c.user.username.capitalize %> posted</h5>
                                 <h5>Title - <%= c.title %></h5>
                                 <h5> Created-at <%= c.created_at %></h5>
