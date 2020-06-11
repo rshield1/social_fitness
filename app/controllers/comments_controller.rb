@@ -43,9 +43,4 @@ class CommentsController < ApplicationController
     def set_comment
         @comment = Comment.find_by(id: params[:id])
     end
-
-
-
-
-    
 end

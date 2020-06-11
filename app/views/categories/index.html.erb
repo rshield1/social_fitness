@@ -10,15 +10,16 @@
                                 <% @categories.each do |c| %>
                                 
                                  <div class="blk_center">
-                               <h4><%= c.name %></h4>
-                             
+                               <h4 class="text-danger"><%= c.name %></h4>
+                               <h4><% @workouts.each do |w| %></h4>
+                                       <% if w.category_id == c.id %>
+                                       <p class="text-white"><%= w.title %></p>
+                                       <% end %>
+                                    <% end %>
                                 </div>
                                 <hr>
-
-
-                              
                                 <% end %>
 
 
-
+                                
                                 <%= render 'workouts/style' %>
