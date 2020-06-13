@@ -8,10 +8,9 @@ Rails.application.routes.draw do
   get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
  
   resources :users
-  resources :moves
 
   resources :categories, only: [:new, :index, :create]
-  resources :comments, except: [:show]
+  resources :comments, only: [:index, :new, :show]
   
   resources :workouts do
     resources :comments, only: [:new, :index]

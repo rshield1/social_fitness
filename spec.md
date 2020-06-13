@@ -30,22 +30,42 @@ Confirm:
 
 
 Explain the MVC framework
+
 How do we access data in our views that we defined in our controllers?
+
 What is the difference between “redirect_to” and “render”
+    Render tells Rails which view or asset to show a user, without losing access to any variables defined in the controller action. Redirect is different. The redirect_to method tells your browser to send a request to another URL.
+
 What methods do we get from “belongs_to”, “has_many”, “has_many, through” and “has_secure_password”?
+
 How do we represent relationships between models in our tables?
-What are params? What are the two places they come from? 
+
+What are params? What are the two places they come from?
+ActionController::Base GET OR POST REQUEST URL OR FORMS
+
 What are sessions?
+
 What is the flow of your application? (i.e. what triggers your get routes vs post routes or patch routes or delete routes)
+
 How do you authenticate your users when they log in?
+
 How do you validate that a username is unique?
+
 Why do I need to check that a resource belongs to the current user in the patch and delete routes?
+
 What are URL helpers? Where do they come from?
+
 When do we typically use form_for vs. form_tag?
+
 How does omniauth work?
+
 When a user makes a request (via form, link, manual change in the url), how does rails know how to handle that request?
+
 How do you validate data? When are these validations run?
+
 Why do we use a join table? What relationship are we setting up?
+
 How do we set up nested forms - what do these forms need to include so that we can associate the new object with the existing? (i.e. if we have the nested route: posts/1/comments/new, how do we associate the new comment with post with id of 1?)
+
 Are nested routes and nested forms connected in any way? How do we use a nested route to help set up our nested form?
 
