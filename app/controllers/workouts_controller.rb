@@ -54,7 +54,6 @@ class WorkoutsController < ApplicationController
     end
 
     def destroy 
-        binding.pry
         if current_user_check != @workout.user_id
             redirect_to user_path(session[:user_id])
         else 
