@@ -7,7 +7,7 @@ class WorkoutsController < ApplicationController
     
         @workouts = Workout.all
         if !params[:user].blank?
-            @workouts = Workout.all
+            @workouts.order_by_size
         elsif !params[:date].blank?
             if params[:date] == "Today"
               @workouts = Workout.today
@@ -15,7 +15,7 @@ class WorkoutsController < ApplicationController
               @workouts = Workout.past
             end
         else   # if no filters are applied, show all workouts by most comments
-            @workouts = Workout.order_by_comments
+            @workouts.order_by_comments
         end
     end
 

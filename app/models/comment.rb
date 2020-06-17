@@ -8,4 +8,6 @@ class Comment < ApplicationRecord
 
   validates :workout, uniqueness: { scope: :user, message: "only 1 comment for this post per user" }
 
+  
+
 end

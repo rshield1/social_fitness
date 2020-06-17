@@ -14,11 +14,15 @@ class Workout < ApplicationRecord
 
 
     #scope methods
-    scope :order_by_comments, -> { left_joins(:comments).group(:id).order("id asc")}
+    scope :order_by_comments, -> { left_joins(:comments).group(:id).order("size desc")}
 
      
     def self.order_by_difficulty
       order(difficulty: :desc)
+    end   
+
+    def self.order_by_size
+      order(comments: :desc)
     end   
 
     def self.by_user(user_id)

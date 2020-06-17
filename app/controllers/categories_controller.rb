@@ -4,6 +4,7 @@ class CategoriesController < ApplicationController
         #it hits the database but filter out the duplicated
         @categories = Category.filter_duplicates
         @workouts = Workout.all
+        
     end
 
 end
