@@ -5,7 +5,7 @@
   <% else %>
     <div>
       <%= c.label :workout_id, "Select a Workout" %>
-      <%= c.collection_select :workout_id, Workout.all.order_by_difficulty, :id, :title_category, include_blank: true %>
+      <%= c.collection_select :workout_id, Workout.all, :id, :title_category, include_blank: true %>
     </div>
   <% end %>
   

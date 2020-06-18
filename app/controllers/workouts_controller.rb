@@ -4,8 +4,12 @@ class WorkoutsController < ApplicationController
     
 
     def index
-    
+        if params
+        @workouts = Workout.filter_by_title(params["/workouts"][:title])
+        else
         @workouts = Workout.all
+
+
         if !params[:user].blank?
             @workouts.order_by_size
         elsif !params[:date].blank?
@@ -17,6 +21,8 @@ class WorkoutsController < ApplicationController
         else   # if no filters are applied, show all workouts by most comments
             @workouts.order_by_comments
         end
+    end
+
     end
 
     

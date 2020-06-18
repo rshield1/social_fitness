@@ -5,14 +5,14 @@
                         <div class="px-2 ">
                           <br>
                           <div class="card text-white bg-dark mb-3">  
-                        <div>
-                          <h3>Filter posts:</h3>
-                          <%= form_tag("/workouts", method: "get") do %>
-                            <%= select_tag "date", options_for_select(["Today", "Past"]), include_blank: true %>
-                            <%= submit_tag "Filter" %>
+
+                          <%= render 'filter' %>
+
+                          <%= form_for(workouts_path, method: :get) do |f| %>
+                          <%= f.search_field (:title) %>
+                          <%= f.submit "Submit" %>
                           <% end %>
-                        </div>
-                        
+
                             <h3>All of the workouts!</h3>
                           </div>
                           <hr>

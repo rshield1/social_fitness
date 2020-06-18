@@ -16,6 +16,10 @@ class Workout < ApplicationRecord
     #scope methods
     scope :order_by_comments, -> { left_joins(:comments).group(:id).order("size desc")}
 
+    def self.filter_by_title(value)
+      where("title like ?" , "%#{value}%")
+    end
+
      
     def self.order_by_difficulty
       order(difficulty: :desc)

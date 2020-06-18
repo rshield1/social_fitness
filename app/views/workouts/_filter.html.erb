@@ -1,0 +1,7 @@
+                        <div>
+                          <h3>Filter posts:</h3>
+                          <%= form_tag("/workouts", method: "get") do %>
+                            <%= select_tag "date", options_for_select(["Today", "Past"]), include_blank: true %>
+                            <%= submit_tag "Filter" %>
+                          <% end %>
+                        </div>

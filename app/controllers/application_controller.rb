@@ -15,9 +15,6 @@ class ApplicationController < ActionController::Base
     session[:user_id] = @user.id
   end
 
-  #I want to create a helper method where I can make sure the user
-  #belongs to the session before the can make any edits or deletions
-  
   def current_user_check
     session[:user_id]
   end
