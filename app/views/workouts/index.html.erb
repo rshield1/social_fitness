@@ -9,6 +9,7 @@
                           <%= render 'filter' %>
 
                           <%= form_for(workouts_path, method: :get) do |f| %>
+                          <%= f.label :title %>
                           <%= f.search_field (:title) %>
                           <%= f.submit "Submit" %>
                           <% end %>
